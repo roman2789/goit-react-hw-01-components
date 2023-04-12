@@ -12,7 +12,7 @@ export const Statistics = ({ title, stats }) => {
           <li
             key={id}
             className={css.stats_item}
-            style={{ backgroundColor: `#${randomColor()}` }}
+            style={{ backgroundColor: `${randomColor()}` }}
           >
             <span className={css.label}>{label}</span>
             <span className={css.percentage}>{percentage}</span>

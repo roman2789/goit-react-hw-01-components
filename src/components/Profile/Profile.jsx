@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import css from './Profile.module.css';
+import { randomColor } from '../../utils/randomColor';
 
 export const Profile = ({
   username,
@@ -11,13 +12,18 @@ export const Profile = ({
   return (
     <div className={css.profile}>
       <div className={css.description}>
-        <img src={avatar} alt="User avatar" className={css.avatar} />
+        <img
+          src={avatar}
+          alt="User avatar"
+          className={css.avatar}
+          style={{ backgroundColor: `${randomColor()}` }}
+        />
         <p className={css.name}>{username}</p>
         <p className={css.tag}>@{tag}</p>
         <p className={css.location}>{location}</p>
       </div>
 
-      <ul className={css.stats}>
+      <ul className={css.stats} style={{ backgroundColor: `${randomColor()}` }}>
         <li>
           <span className={css.label}>Followers</span>
           <span className={css.quantity}>{followers}</span>

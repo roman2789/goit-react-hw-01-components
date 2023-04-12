@@ -1,2 +1,11 @@
-export const randomColor = () =>
-  Math.floor(Math.random() * 16777215).toString(16);
+export function randomColor() {
+  return (
+    'hsl(' +
+    360 * Math.random() +
+    ',' +
+    (25 + 70 * Math.random()) +
+    '%,' +
+    (85 + 10 * Math.random()) +
+    '%)'
+  );
+}
