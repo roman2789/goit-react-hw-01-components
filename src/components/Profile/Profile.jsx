@@ -1,6 +1,17 @@
 import PropTypes from 'prop-types';
-import css from './Profile.module.css';
 import { randomColor } from '../../utils/randomColor';
+import {
+  ProfileWrap,
+  Description,
+  Avatar,
+  Name,
+  Tag,
+  Location,
+  Stats,
+  StatItem,
+  Label,
+  Quantity,
+} from 'components/Profile/Profile.styled';
 
 export const Profile = ({
   username,
@@ -10,34 +21,33 @@ export const Profile = ({
   stats: { followers, views, likes },
 }) => {
   return (
-    <div className={css.profile}>
-      <div className={css.description}>
-        <img
+    <ProfileWrap>
+      <Description>
+        <Avatar
           src={avatar}
           alt="User avatar"
-          className={css.avatar}
           style={{ backgroundColor: `${randomColor()}` }}
         />
-        <p className={css.name}>{username}</p>
-        <p className={css.tag}>@{tag}</p>
-        <p className={css.location}>{location}</p>
-      </div>
+        <Name>{username}</Name>
+        <Tag>@{tag}</Tag>
+        <Location>{location}</Location>
+      </Description>
 
-      <ul className={css.stats} style={{ backgroundColor: `${randomColor()}` }}>
-        <li>
-          <span className={css.label}>Followers</span>
-          <span className={css.quantity}>{followers}</span>
-        </li>
-        <li>
-          <span className={css.label}>Views</span>
-          <span className={css.quantity}>{views}</span>
-        </li>
-        <li>
-          <span className={css.label}>Likes</span>
-          <span className={css.quantity}>{likes}</span>
-        </li>
-      </ul>
-    </div>
+      <Stats style={{ backgroundColor: `${randomColor()}` }}>
+        <StatItem>
+          <Label>Followers</Label>
+          <Quantity>{followers}</Quantity>
+        </StatItem>
+        <StatItem>
+          <Label>Views</Label>
+          <Quantity>{views}</Quantity>
+        </StatItem>
+        <StatItem>
+          <Label>Likes</Label>
+          <Quantity>{likes}</Quantity>
+        </StatItem>
+      </Stats>
+    </ProfileWrap>
   );
 };
 
